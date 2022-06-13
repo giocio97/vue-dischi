@@ -1,23 +1,33 @@
 <template>
-  <section>
+<main>
+
+ <SelectGenere @myGenere="searchGenere"/>
+
+       <section>
+     
     <AlbumCard
     v-for="item in listaAlbum"
     :key="item"
     :discoObjet="item"
     />
   </section>
+</main>
+
+ 
 </template>
 
 <script>
 
 import axios from "axios"
 import AlbumCard from '@/components/AlbumCard.vue'
+import SelectGenere from "./SelectGenere.vue";
 
 export default {
   name: 'DischiList',
    components: {
-            AlbumCard,
-  },
+    AlbumCard,
+    SelectGenere
+},
   data(){
     return{
         apiUrl:"https://flynn.boolean.careers/exercises/api/array/music",
@@ -37,6 +47,19 @@ export default {
         this.listaAlbum = result.data.response;
         console.log(result);
     })
+    },
+
+    // searchGenere(genereUser){
+    //   this.
+    // }
+  },
+  computed:{
+    filteredGenere(){
+      return this.listaAlbum;
+
+      return  this.listaAlbum.filter(item => {
+        return item.genre
+      });
     }
   }
 }
@@ -44,9 +67,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-section{
-    height: calc(100vh - 5vh);
-    background-color: #1e2d3b;
+main{
+  background-color: #1e2d3b;
+  text-align: center;
+   height: calc(100vh - 5vh);
+  section{
+   
+    
     display: flex;
    justify-content: center;
    justify-items: flex-start;
@@ -54,5 +81,6 @@ section{
     padding: 30px;
     gap: 5px;
      
+}
 }
 </style>
