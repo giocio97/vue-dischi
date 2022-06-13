@@ -2,11 +2,11 @@
 
 <div>
    <select onclick="$emit(`myGenere`,  inputGenere)" name="genere" id="genere">
-        <option value="all">all</option>
-        <option value="Rock">Rock</option>
-        <option value="Pop">Pop</option>
-        <option value="Jazz">Jazz</option>
-        <option value="Metal">Metal</option>
+        <option :value="all">all</option>
+        <option :value="Rock">Rock</option>
+        <option :value="Pop">Pop</option>
+        <option :value="Jazz">Jazz</option>
+        <option :value="Metal">Metal</option>
 
       </select> 
 </div>
@@ -24,7 +24,7 @@
 export default {
   name: 'SelectGenere',
    components: {
-            AlbumCard,
+           
   },
   data(){
     return{
@@ -34,9 +34,7 @@ export default {
 
   
 
-  methods:{
-   
-  }
+ 
 }
 </script>
 

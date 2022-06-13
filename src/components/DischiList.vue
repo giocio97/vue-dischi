@@ -55,7 +55,7 @@ export default {
   },
   computed:{
     filteredGenere(){
-      return this.listaAlbum;
+      // return this.listaAlbum;
 
       return  this.listaAlbum.filter(item => {
         return item.genre
