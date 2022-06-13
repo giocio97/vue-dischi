@@ -1,9 +1,9 @@
 <template>
  <div class="card">
-    <img :src="datails.poster" :alt="datails.title">
-    <h4> {{datails.title}} </h4>
-    <span> {{datails.author}} </span><br>
-    <span> {{datails.year}} </span>
+    <img :src="discoObjet.poster" :alt="discoObjet.title">
+    <h4> {{discoObjet.title}} </h4>
+    <span> {{discoObjet.author}} </span><br>
+    <span> {{discoObjet.year}} </span>
  </div>
  
 </template>
@@ -12,7 +12,7 @@
 export default {
    name: 'AlbumCard',
    props:{
-    datails:Object
+    discoObjet:Object
    } 
 }
 </script>

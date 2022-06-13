@@ -1,8 +1,9 @@
 <template>
   <section>
   <AlbumCard
-    v-for="(item, index) in listaAlbum" :key="index"
-    :datails="item"
+    v-for="item in listaAlbum"
+    :key="item"
+    :discoObjet="item"
   />
   </section>
 </template>
@@ -10,29 +11,30 @@
 <script>
 
 import axios from "axios"
-import AlbumCard from '@/components/AlbumCard.vue'
+import AlbumCard from './components/AlbumCard.vue'
 
 export default {
   name: 'DischiList',
    components: {
-  AlbumCard
+            AlbumCard,
   },
   data(){
     return{
         apiUrl:"https://flynn.boolean.careers/exercises/api/array/music",
-        listaAlbum:[],
+        listaAlbum: []
     }
   },
 
   created(){
-    this.getAlbum()
+    this.getAlbum();
   },
 
   methods:{
     getAlbum(){
-        axios.get(this.apiUrl)
-        .then((result)=>{
-        this.listaAlbum = result.data;
+        axios
+        .get(this.apiUrl)
+        .then((result) => {
+        this.listaAlbum = result.data.response;
         console.log(result);
     })
     }
