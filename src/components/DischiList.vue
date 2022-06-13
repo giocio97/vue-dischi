@@ -1,17 +1,17 @@
 <template>
   <section>
-  <AlbumCard
+    <AlbumCard
     v-for="item in listaAlbum"
     :key="item"
     :discoObjet="item"
-  />
+    />
   </section>
 </template>
 
 <script>
 
 import axios from "axios"
-import AlbumCard from './components/AlbumCard.vue'
+import AlbumCard from '@/components/AlbumCard.vue'
 
 export default {
   name: 'DischiList',
@@ -48,6 +48,11 @@ section{
     height: calc(100vh - 5vh);
     background-color: #1e2d3b;
     display: flex;
-    justify-content: space-between;
+   justify-content: center;
+   justify-items: flex-start;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 5px;
+     
 }
 </style>
