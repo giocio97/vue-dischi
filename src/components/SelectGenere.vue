@@ -1,12 +1,12 @@
 <template>
 
 <div>
-   <select onclick="$emit(`myGenere`,  inputGenere)" name="genere" id="genere">
-        <option :value="all">all</option>
-        <option :value="Rock">Rock</option>
-        <option :value="Pop">Pop</option>
-        <option :value="Jazz">Jazz</option>
-        <option :value="Metal">Metal</option>
+   <select v-model="inputGenere" @click.prevent="myEmit()" name="selection" id="genere" >
+        <option value="all">all</option>
+        <option value="Rock">Rock</option>
+        <option value="Pop">Pop</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Metal">Metal</option>
 
       </select> 
 </div>
@@ -23,14 +23,23 @@
 
 export default {
   name: 'SelectGenere',
-   components: {
-           
-  },
+   
   data(){
     return{
      inputGenere: "",
+
     }
+    
   },
+  methods:{
+    myEmit(){
+      this.$emit(`mySearch`, this.inputGenere);
+      console.log(this.inputGenere);
+    }
+  }
+
+   
+    
 
   
 

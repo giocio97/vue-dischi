@@ -1,13 +1,13 @@
 <template>
 <main>
 
- <SelectGenere @myGenere="searchGenere"/>
+  <SelectGenere @mySearch = "searchGenere"/>
 
        <section>
      
     <AlbumCard
-    v-for="item in listaAlbum"
-    :key="item"
+    v-for="(item, index) in filteredGenere"
+    :key="index"
     :discoObjet="item"
     />
   </section>
@@ -31,7 +31,8 @@ export default {
   data(){
     return{
         apiUrl:"https://flynn.boolean.careers/exercises/api/array/music",
-        listaAlbum: []
+        listaAlbum: [],
+        userText: "",
     }
   },
 
@@ -49,19 +50,22 @@ export default {
     })
     },
 
-    // searchGenere(genereUser){
-    //   this.
-    // }
+    searchGenere(genereUser){
+      this.userText = genereUser;
+    }
   },
   computed:{
     filteredGenere(){
-      // return this.listaAlbum;
-
-      return  this.listaAlbum.filter(item => {
-        return item.genre
+      if (this.userText === ""){
+      return this.listaAlbum;
+      } else{
+        return this.listaAlbum.filter(item => {
+        return item.genre.toLowerCase().includes(this.userText.toLowerCase());
+        
       });
-    }
-  }
+      }
+    },
+  },
 }
 </script>
 
