@@ -56,7 +56,7 @@ export default {
   },
   computed:{
     filteredGenere(){
-      if (this.userText === ""){
+      if (this.userText === "all"){
       return this.listaAlbum;
       } else{
         return this.listaAlbum.filter(item => {
