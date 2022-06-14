@@ -47,20 +47,24 @@ export default {
         .then((result) => {
         this.listaAlbum = result.data.response;
         console.log(result);
+        console.log(this.listaAlbum);
+       
     })
     },
 
     searchGenere(genereUser){
+       console.log(this.userText);
       this.userText = genereUser;
+
     }
   },
   computed:{
     filteredGenere(){
-      if (this.userText === "all"){
+      if (this.userText === "" || this.userText === "all" ){
       return this.listaAlbum;
       } else{
         return this.listaAlbum.filter(item => {
-        return item.genre.toLowerCase().includes(this.userText.toLowerCase());
+          return item.genre.toLowerCase().includes(this.userText.toLowerCase());
         
       });
       }

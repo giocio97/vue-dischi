@@ -1,7 +1,7 @@
 <template>
 
 <div>
-   <select v-model="inputGenere" @click.prevent="myEmit()" name="selection" id="genere" >
+   <select v-model="inputGenere" @change="myEmit()" name="selection" id="genere" >
         <option value="all">all</option>
         <option value="Rock">Rock</option>
         <option value="Pop">Pop</option>
